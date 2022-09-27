@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const pathToFile = "./src/data/cart.json";
+const pathToFile = "./src/data/carts.json";
 
 class CartManager {
   create = async (cart) => {
