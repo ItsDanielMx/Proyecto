@@ -16,14 +16,14 @@ class CartManager {
           ...cart,
         };
         carts.push(cart);
-        await fs.promises.readFile(pathToFile, JSON.stringify(carts, null, 2));
+        await fs.promises.writeFile(pathToFile, JSON.stringify(carts, null, 2));
       } else {
         cart = {
           id,
           timestamp: new Date().toDateString(),
           ...cart,
         };
-        await fs.promises.readFile(pathToFile, JSON.stringify([cart], null, 2));
+        await fs.promises.writeFile(pathToFile, JSON.stringify([cart], null, 2));
       }
       return cart;
     } catch (err) {
@@ -68,12 +68,13 @@ class CartManager {
       let isFound = false;
       let data = await fs.promises.readFile(pathToFile, "utf-8");
       let carts = JSON.parse(data);
+      let cart = carts.find((item) => item.id === id);
       let newCarts = carts.map((item) => {
         if (item.id === id) {
           isFound = true;
           return {
-            id,
-            ...updatedCart,
+            cart,
+            ...updatedCart
           };
         } else return item;
       });
@@ -100,7 +101,7 @@ class CartManager {
       //delete (?)
       idProduct = parseInt(idProduct);
       let isFound = false;
-      let newCart = cart.filter((product) => product.id !== idProduct);
+      let newCart = cart.filter((product) => product.idProduct !== idProduct);
       if (cart.length !== newCart.length) isFound = true;
       if (!isFound) return { error: 0, description: "Producto no encontrado" };
       await fs.promises.writeFile(pathToFile, JSON.stringify(newCart, null, 2));

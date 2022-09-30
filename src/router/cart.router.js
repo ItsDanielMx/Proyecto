@@ -6,7 +6,7 @@ const manager = new Manager();
 
 router.post("/", (req, res) => {
   manager
-    .create()
+    .create(req.body)
     .then((result) => res.send(result))
     .catch((err) => res.send({ error: 0, description: err }));
 });
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
     .catch((err) => res.send({ error: 0, description: err }));
 });
 
-router.put("/", (req, res) => {
+router.post("/:id", (req, res) => {
   if (isNaN(req.params.id))
     return res.status(404).send({
       error: -2,

@@ -29,13 +29,6 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   if (isAdmin === true) {
-    if (isNaN(req.params.id))
-      return res
-        .status(404)
-        .send({
-          error: -2,
-          description: `ruta ${req.baseUrl}${req.url} metodo ${req.method} no implementad@`,
-        });
     if (
       !req.body.title ||
       !req.body.price ||

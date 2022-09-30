@@ -27,14 +27,14 @@ class ProductManager {
       if (fs.existsSync(pathToFile)) {
         let data = await fs.promises.readFile(pathToFile, "utf-8");
         let products = JSON.parse(data);
-        if (products.length > 0) id = products[products.length - 1].id + 1;
+        if (products.length > 0) id = products[products.length-1].id+1;
         product = {
           id,
           timestamp: new Date().toDateString(),
           ...product,
         };
         products.push(product);
-        await fs.promises.readFile(
+        await fs.promises.writeFile(
           pathToFile,
           JSON.stringify(products, null, 2)
         );
@@ -44,7 +44,7 @@ class ProductManager {
           timestamp: new Date().toDateString(),
           ...product,
         };
-        await fs.promises.readFile(
+        await fs.promises.writeFile(
           pathToFile,
           JSON.stringify([product], null, 2)
         );
