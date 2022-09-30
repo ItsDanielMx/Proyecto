@@ -18,7 +18,7 @@ router.delete("/:id", (req, res) => {
     .catch((err) => res.send({ error: 0, description: err }));
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id/productos", (req, res) => {
   if (isNaN(req.params.id))
     return res.status(404).send({
       error: -2,
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
     .catch((err) => res.send({ error: 0, description: err }));
 });
 
-router.post("/:id", (req, res) => {
+router.post("/:id/productos", (req, res) => {
   if (isNaN(req.params.id))
     return res.status(404).send({
       error: -2,
