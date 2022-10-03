@@ -85,18 +85,18 @@ class CartManager {
     if (fs.existsSync(pathToFile)) {
       let data = await fs.promises.readFile(pathToFile, "utf-8");
       let carts = JSON.parse(data);
-      let product = carts.find((item) => item.id === id);
-      if (!product) return { error: 0, description: "Carrito no encontrado" };
+      let cart = carts.find((item) => item.id === id);
+      if (!cart) return { error: 0, description: "Carrito no encontrado" };
 
       //delete (?)
       idProduct = parseInt(idProduct);
       let isFound = false;
-      let newCart = product.filter((product) => product.idProduct !== idProduct);
-      if (product.length !== newCart.length) isFound = true;
+      let newCart = cart.filter((product) => product.idProduct !== idProduct);
+      if (cart.length !== newCart.length) isFound = true;
       if (!isFound) return { error: 0, description: "Producto no encontrado" };
       await fs.promises.writeFile(pathToFile, JSON.stringify(newCart, null, 2));
-      product = newCart;
-      return product;
+      cart = newCart;
+      return cart;
     } else {
       return { error: 0, description: "No se ha encontrado la base de datos" };
     }
