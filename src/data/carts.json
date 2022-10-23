@@ -1,18 +1,18 @@
 [
   {
-    
-      "id": 1,
-      "timestamp": "Wed Sep 28 2022",
-      "products": [
+    "id": 2,
+    "timestamp": "Wed Sep 28 2022",
+    "products": [
+      [
         {
-          "id": 2,
+          "id": 1,
           "timestamp": "24/09/22 10:20:05",
-          "title": "PANASONIC VARICAM LT",
+          "title": "ARRI ALEXA LF or MINI LF",
           "description": "Una camara muy bonita que graba en 4K 60fps",
-          "code": "A777",
-          "price": 450,
-          "stock": 329,
-          "thumbnail": "https://res.cloudinary.com/itsdanielmx/image/upload/v1653433873/img/Panasonic-Varicam_qhixdc.jpg"
+          "code": "A776",
+          "price": 2500,
+          "stock": 267,
+          "thumbnail": "https://res.cloudinary.com/itsdanielmx/image/upload/v1653433855/img/ALEXA-Mini-LF-SP-47-MVF-2-left-front-white_a6zfrt.jpg"
         },
         {
           "id": 3,
@@ -25,5 +25,6 @@
           "thumbnail": "https://res.cloudinary.com/itsdanielmx/image/upload/v1653433863/img/Arri-Alexa-Mini-PL-1_y1dzww.jpg"
         }
       ]
+    ]
   }
 ]

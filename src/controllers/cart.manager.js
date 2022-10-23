@@ -62,23 +62,30 @@ class CartManager {
     return cart;
   };
 
-  update = async (elem, id) => {
-    let data = await fs.promises.readFile(pathToFile, "utf-8");
-    const isFound = data.findIndex(o => o.id == id)
-    if (isFound == -1) {
-      return { error: 0, description: "Carrito no encontrado" };
-    } else {
-      data[isFound] = {...elem, id}
-        try {
-          await fs.promises.writeFile(
-            pathToFile, JSON.stringify(data, null, 2)
-          )
-        } catch (error) {
-          return { error: 0, description: "No se ha encontrado la base de datos" };
+  update = async (id, product) => {
+    try {
+      id = parseInt(id)
+      if (!fs.existsSync(pathToFile)) return { error: 0, description: "No existe la base de datos" }
+      let data = await fs.promises.readFile(pathToFile, "utf-8")
+      let carts = JSON.parse(data)
+      let cart = carts.find((item) => item.id === id);
+      if (!cart) return { error: 0, description: "Carrito no encontrado" }
+      cart.products.push(product)
+      let newCarts = carts.map(item => {
+        if (item.id === id) {
+          return cart
+        } else {
+          return item
         }
+      })
+      await fs.promises.writeFile(pathToFile, JSON.stringify(newCarts, null, 2))
+      return newCarts
+    } catch (err) {
+      return { error: 0, description: "Error al acceder a la base de datos" };
     }
+    
   }
-
+/*
   deleteProduct = async (id, idProduct) => {
     //findById
     id = parseInt(id);
@@ -100,7 +107,35 @@ class CartManager {
     } else {
       return { error: 0, description: "No se ha encontrado la base de datos" };
     }
-  };
+  };*/
+  deleteProduct = async (idCart, idProduct) => {
+    try {
+      idCart = parseInt(idCart)
+      idProduct = parseInt(idProduct)
+      if (!fs.existsSync(pathToFile)) return { error: 0, description: "No existe la base de datos" }
+      let data = await fs.promises.readFile(pathToFile, "utf-8")
+      let isFound = false
+      let carts = JSON.parse(data)
+      let cart = carts.find((item) => item.id === idCart);
+      if (!cart) return { error: 0, description: "Carrito no encontrado" }
+      let newProducts = cart.products.filter(item => item.id !== idProduct)
+      if (cart.products.length !== newProducts.length) isFound = true
+      if (!isFound) return { error: 0, description: "Producto no encontrado" }
+      let newCart = carts.map(item => {
+        if (item.id === idCart) {
+          cart.products = []
+          cart.products.push(newProducts)
+          return cart
+        } else {
+          return item
+        }
+      })
+      await fs.promises.writeFile(pathToFile, JSON.stringify(newCart, null, 2))
+      return newCart
+    } catch (err){
+      return { error: 0, description: "Error al acceder a la base de datos" };
+    }
+  }
 }
 
 module.exports = CartManager;
