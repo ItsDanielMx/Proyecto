@@ -123,8 +123,8 @@ class CartManager {
       if (!isFound) return { error: 0, description: "Producto no encontrado" }
       let newCart = carts.map(item => {
         if (item.id === idCart) {
-          cart.products = []
-          cart.products.push(newProducts)
+          const index = cart.products.findIndex((item) => item.id === idProduct)
+          cart.products.splice(index, 1)
           return cart
         } else {
           return item
