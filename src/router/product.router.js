@@ -1,28 +1,33 @@
 const express = require("express");
 const router = express.Router();
 
-const Manager = require("../controllers/product.manager");
-const manager = new Manager();
+//Archivo
+// const Manager = require("../controllers/product.manager");
+// const manager = new Manager();
+
+//Firebase
+// const ProductManagerFirebase = require("../daos/firebase/firebase.product.manager");
+// const manager = new ProductManagerFirebase();
+
+//Mongo
+const ProductManagerMongo = require("../daos/mongo/mongo.product.manager");
+const manager = new ProductManagerMongo();
 
 let isAdmin = true;
 
 router.get("/", (req, res) => {
   manager
-    .findAll()
+    .FindAll() //Firebase/Mongo
+    // .findAll() Archivo
     .then((result) => res.send(result))
     .catch((err) => res.send({ error: 0, description: err }));
 });
 
 router.get("/:id", (req, res) => {
-  if (isNaN(req.params.id))
-    return res
-      .status(404)
-      .send({
-        error: -2,
-        description: `ruta ${req.baseUrl}${req.url} metodo ${req.method} no implementad@`,
-      });
   manager
-    .findById(req.params.id)
+    .FindById(req.params.id) //Mongo
+    // .FindById(req.params.id) //Firebase/Mongo
+    // .findById(req.params.id) //Archivo
     .then((result) => res.send(result))
     .catch((err) => res.send({ error: 0, description: err }));
 });
@@ -38,7 +43,8 @@ router.post("/", (req, res) => {
     )
       return res.send({ error: "Data is required" });
     manager
-      .create(req.body)
+      .Create(req.body) //Firebase/Mongo
+      // .create(req.body) //Archivo
       .then((result) => res.send(result))
       .catch((err) => res.send({ error: 0, description: err }));
   } else {
@@ -48,13 +54,6 @@ router.post("/", (req, res) => {
 
 router.put("/", (req, res) => {
   if (isAdmin === true) {
-    if (isNaN(req.params.id))
-      return res
-        .status(404)
-        .send({
-          error: -2,
-          description: `ruta ${req.baseUrl}${req.url} metodo ${req.method} no implementad@`,
-        });
     if (
       !req.body.title ||
       !req.body.price ||
@@ -64,7 +63,8 @@ router.put("/", (req, res) => {
     )
       return res.send({ error: "Data is required" });
     manager
-      .update(req.params.id, req.body)
+      .Update(req.params.id, req.body) //Firebase/Mongo
+      // .update(req.params.id, req.body) //Archivo
       .then((result) => res.send(result))
       .catch((err) => res.send({ error: 0, description: err }));
   } else {
@@ -75,7 +75,8 @@ router.put("/", (req, res) => {
 router.delete("/:id", (req, res) => {
   if (isAdmin === true) {
     manager
-      .delete(req.params.id)
+      .Delete(req.params.id) //Firebase
+      // .delete(req.params.id) //Archivo
       .then((result) => res.send(result))
       .catch((err) => res.send({ error: 0, description: err }));
   } else {

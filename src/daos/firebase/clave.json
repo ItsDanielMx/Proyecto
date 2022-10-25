@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "la-film-boutique",
+  "private_key_id": "6c6a37939b746722fca69175e2df16ae8b1b8494",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC8M5DTBTwix6Ri\n6tU9aYXkC1YAK2cjnDgFLQwHYVoqxhGYFiZvv0Cd/u0AAOTpdEGC1p6DtqrvXa9R\nG+Ck7LPgOYPwkWFVOemlz4oCOxipJj24rJMSG/MQ/bQKlHBvoNJGp5J4O0R8Sxie\n4llMEQuNLy5kv4NW7qWHBknEh8jPTSo4g7du4ukeVXyxfWOx0qsilc2pGZptEHYv\nL8yHCRanhz1SuBPX5zCBjjb6wXIdhy9xmcI0wJIQhi7Pg/pSlkwRX+egxrRT9AUF\nsHH78nDJpYPAHQDqrB9LlFPfR3CF1ReDS8/tXW5+LFVodq9+ihZ2XgGNPJcfHjQ6\nJ5e0+7TlAgMBAAECggEAI4VyDLoctw3KU5cyJzSu/jM7iK2oelqmYie18QCpZZBb\nysJHf+jvl8KBVfJVQlDceobqhT6pdaNPjzX9SPOaIbSJWBMAdXcIR/Drge9IgMiE\ndsIvwge/cVIJNMP+krseZRKEvSemjfUYkQh0xTwkW4HvtjlFX1eMq3b+3laoiqOZ\nPT8TStbPt+bxiouAPWDam9OHaOCHdoryvNl8KQbL7DJkFKDJDSzT6jH+Ln0n/zWN\n0ljmti0l3X5CXY8p09K4IRVPab4GtfNI4d13DLpWxoLdMVZtH6BLhmRynTD0qjpM\nz8eSeFIVjNJRccf+NsrKjpyCVtDkcHf9v9XicI6QwwKBgQDtF6GYzLPDwbfks4rn\nx3JGE2wpUJUiuEZilkH3z7XP0KI1ni1c2JU0byc2iDW4Ez/S3tFzkC2IL9/gu4Qj\n/T9IulyI18/O5D2eKr+mZGlh85C4Atb63mN97lEMk9SGRx109I/J62+/o1+kZ3jf\nPeeFVcjZpkCjSHQoWKx3vWz3pwKBgQDLNcztFB0mR0EALRzXzv5jiMpkz4//pZcG\nHjpQIwnznD7wPEpGHy8xVS4cXeejZB6MX3uN+0iQG/uQu8rJBAYqM2rMhlr7v0n6\nghscMvm6Lp26J2Pg5b/Tgcq771RJrlzsXlGELu5RIm5vn3kPBIs8Npy7TaRpxydr\nLe3w4nqAkwKBgQCmYJzwA0ZrKvgHL89cU2PntR2D6J6fXL1X1aW5ZzNpADm0cqnW\nq84Ym5/i7rbz095H9kD5XcX1+dKbfDuAnejY+p6REREtWJG8+ra+51vkdu2pk6SV\nK5aZ+rE5qEvNZv5O4og85FDpJJarYkk6L9DWipqF0dsuOlv5LDDrXiynpQKBgFZl\n0XMbEimsMd65T4IR5+a5yhOCjF7NMKDRSUm5HAoPbFMHzyxxJcd7x9cXtdyqPLLC\nBe4f4IIk45htv5Inu9dFdSrwFM7kTbfMiWo74iFeoID9LmH4TM7IaEHvR47sK2Xz\n1AS3T2v/j6S10Oqpq+k17v1TzYuLuR7AsGGyaRMxAoGBAJA8F2Cx4pzYhEO1SfiI\niiSxbQSfB9XyXz1f4eQAVU0ECN8RHCoYYVHAsYCT+LOFZKixtslyWALjvzDvRcws\nxyJ6suZvtfWX1/QgMe6UUXTqk9RHw0oRwqJZc62QbnIy2z6627/3lQPu24onCJ0V\n77aXK2ZvrNreAH0wrpGvCtP3\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-scfvz@la-film-boutique.iam.gserviceaccount.com",
+  "client_id": "114775633846693584872",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-scfvz%40la-film-boutique.iam.gserviceaccount.com"
+}
