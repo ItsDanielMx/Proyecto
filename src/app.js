@@ -2,6 +2,7 @@ const express = require('express');
 const productRouter = require('./router/product.router');
 const cartRouter = require('./router/cart.router')
 
+const MongoDb = require('./daos/mongo/mongo.config')
 const app = express();
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
@@ -20,3 +21,5 @@ app.use((req, res) => {
       description: `ruta ${req.baseUrl}${req.url} metodo ${req.method} no implementad@`,
     });
 });
+
+MongoDb()

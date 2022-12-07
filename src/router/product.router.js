@@ -25,8 +25,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   manager
-    .FindById(req.params.id) //Mongo
-    // .FindById(req.params.id) //Firebase/Mongo
+    .FindById(req.params.id) //Firebase/Mongo
     // .findById(req.params.id) //Archivo
     .then((result) => res.send(result))
     .catch((err) => res.send({ error: 0, description: err }));
@@ -75,7 +74,7 @@ router.put("/", (req, res) => {
 router.delete("/:id", (req, res) => {
   if (isAdmin === true) {
     manager
-      .Delete(req.params.id) //Firebase
+      .Delete(req.params.id) //Firebase/Mongo
       // .delete(req.params.id) //Archivo
       .then((result) => res.send(result))
       .catch((err) => res.send({ error: 0, description: err }));
